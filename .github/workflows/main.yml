@@ -1,0 +1,31 @@
+name: Deploy TensorFlow Docker Container
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if your branch name is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH agent
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.dockerkey1 }}  # Your SSH key stored in GitHub secrets
+
+    - name: SSH into the server and deploy TensorFlow Docker container
+      run: |
+        cd jamal/dockerfile
+        # Pull the TensorFlow image from Docker Hub
+        docker pull tensorflow/tensorflow:latest
+        # Stop and remove any existing container with the name 'dockertest-container'
+        docker stop dockertest-container || true
+        docker rm dockertest-container || true
+        # Run the new TensorFlow container
+        docker run -d --name dockertest-container tensorflow/tensorflow:latest
+        "
