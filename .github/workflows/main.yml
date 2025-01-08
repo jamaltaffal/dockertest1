@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
     - name: SSH into the server and deploy TensorFlow Docker container
       run: |
         # Pull the TensorFlow image from Docker Hub
-        docker pull elasticsearch/elasticsearch
+        docker pull redis
         # Stop and remove any existing container with the name 'dockertest-container'
         docker stop dockertest-container || true
         docker rm dockertest-container || true
