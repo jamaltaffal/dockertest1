@@ -22,7 +22,7 @@ jobs:
     - name: SSH into the server and deploy TensorFlow Docker container
       run: |
         # Pull the TensorFlow image from Docker Hub
-        docker pull elasticsearch
+        docker pull elasticsearch/elasticsearch
         # Stop and remove any existing container with the name 'dockertest-container'
         docker stop dockertest-container || true
         docker rm dockertest-container || true
