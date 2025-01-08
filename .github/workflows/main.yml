@@ -21,7 +21,7 @@ jobs:
 
     - name: SSH into the server and deploy TensorFlow Docker container
       run: |
-        cd ~/jamal/dockertest/dockertest1
+        cd jamal/dockertest
         # Pull the TensorFlow image from Docker Hub
         docker pull tensorflow/tensorflow
         # Stop and remove any existing container with the name 'dockertest-container'
