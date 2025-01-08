@@ -16,7 +16,7 @@ jobs:
     - name: Set up SSH agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.dockerkey }}  # Your SSH key stored in GitHub secrets
+        ssh-private-key: ${{ secrets.DOCKERKEY }}  # Your SSH key stored in GitHub secrets
 
     - name: SSH into the server and deploy TensorFlow Docker container
       run: |
