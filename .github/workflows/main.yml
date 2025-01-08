@@ -15,7 +15,7 @@ jobs:
 
     - uses: appleboy/ssh-action@v1.0.0
       with:
-          host: ${{ secrets.IP }}  
+          host: 168.119.254.41  
           username: root  
           key: ${{ secrets.DOCKERKEY }}  
 
