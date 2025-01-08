@@ -27,5 +27,6 @@ jobs:
         docker stop dockertest-container || true
         docker rm dockertest-container || true
         # Run the new TensorFlow container
-        docker run -d --name dockertest-container -p 1234:1234 tensorflow/tensorflow:latest 
+        docker run -d --name dockertest-container -p 1234:1234 tensorflow/tensorflow
         "
+      
